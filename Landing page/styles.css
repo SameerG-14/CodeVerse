@@ -104,11 +104,42 @@ nav {
   color: var(--text-dark);
 }
 
-.nav__btns {
+/* .nav__btns {
   display: none;
+} */
+.nav__btns {
+  display: flex;
+  flex: 1;
+  gap: 10px;
+
 }
-.nav__btns .btn .sign__in{
-  color: var(--text-light);
+
+.nav__btns .btn {
+  padding: 0.75rem 1.5rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  white-space: nowrap;
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.sign__up {
+  color: var(--text-dark);
+  background-color: transparent;
+}
+
+.sign__up:hover {
+  color: var(--primary-color);
+}
+
+.sign__in {
+  color: var(--white);
+  background-color: var(--primary-color);
+}
+
+.sign__in:hover {
+  background-color: var(--primary-color-dark);
 }
 
 .header__container {
@@ -295,6 +326,18 @@ nav {
   color: var(--text-light);
   text-align: center;
 }
+@media (width < 768px){
+  .nav__btns{
+    display:flex;
+    position:absolute;
+    align-items: center;
+    gap: 2px;
+    top: 1rem;
+    left: 35vw;
+    color: var(--text-dark);  
+  }
+}
+
 
 @media (width > 768px) {
   nav {
