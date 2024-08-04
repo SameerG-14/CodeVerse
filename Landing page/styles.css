@@ -46,13 +46,26 @@ nav {
   justify-content: space-between;
   background-color: var(--primary-color);
 }
-
 .nav__logo a {
-  font-size: 1.75rem;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
   font-weight: 400;
   font-family: var(--header-font);
-  color: var(--white);
+  color:var(--text-dark);
 }
+.nav__header .nav__logo .logo .logo-div{
+  display: flex;
+  align-items: center;
+}
+.nav__header .nav__logo .logo .logo-img{
+  width: 4rem;
+  margin-right: 1rem;
+  padding-bottom: 5px;
+}
+/* .nav__header .nav__logo .logo .logo-div span{
+  padding-top: 10px;
+} */
 
 .nav__menu__btn {
   font-size: 1.5rem;
@@ -93,6 +106,9 @@ nav {
 
 .nav__btns {
   display: none;
+}
+.nav__btns .btn .sign__in{
+  color: var(--text-light);
 }
 
 .header__container {
@@ -299,13 +315,13 @@ nav {
     background-color: transparent;
   }
 
-  .nav__logo a {
+  /* .nav__logo a {
     color: var(--text-dark);
   }
 
   .nav__logo a span {
     color: var(--primary-color);
-  }
+  } */
 
   .nav__menu__btn {
     display: none;

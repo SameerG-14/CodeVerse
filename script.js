@@ -1,3 +1,30 @@
+// Initial display
+document.getElementById('search-form').addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   let searchBox = document.getElementById('search_box');
+   let search = searchBox.value.trim().toLowerCase(); // Normalize the search input
+
+   let redirectTo = '';
+
+   if (search === 'javascript') {
+       redirectTo = "jsplaylist.html";
+   } else if (search === 'html') {
+       redirectTo = "playlist.html";
+   } else if (search === 'css') {
+       redirectTo = "cssplaylist.html";
+   } else {
+       redirectTo = "courses.html";
+   }
+
+   // Clear the search box
+   searchBox.value = '';
+
+   // Redirect to the determined page
+   window.location.href = redirectTo;
+});
+
+
 let toggleBtn = document.getElementById('toggle-btn');
 let body = document.body;
 let darkMode = localStorage.getItem('dark-mode');
@@ -27,12 +54,27 @@ toggleBtn.onclick = (e) =>{
    }
 }
 
+
+
 let profile = document.querySelector('.header .flex .profile');
 
 document.querySelector('#user-btn').onclick = () =>{
    profile.classList.toggle('active');
    search.classList.remove('active');
 }
+document.addEventListener('click', (event) => {
+   const isClickInsideProfile = profile.contains(event.target);
+   const isClickInsideUserBtn = document.querySelector('#user-btn').contains(event.target);
+
+   if (!isClickInsideProfile && !isClickInsideUserBtn) {
+       profile.classList.remove('active');
+   }
+});
+
+// Prevent clicks inside the profile from closing it
+profile.addEventListener('click', (event) => {
+   event.stopPropagation();
+});
 
 let search = document.querySelector('.header .flex .search-form');
 
@@ -40,14 +82,38 @@ document.querySelector('#search-btn').onclick = () =>{
    search.classList.toggle('active');
    profile.classList.remove('active');
 }
+document.addEventListener('click', (event) => {
+   const isClickInsideSearch = search.contains(event.target);
+   const isClickInsideSearchBtn = document.querySelector('#search-btn').contains(event.target);
 
+   if (!isClickInsideSearch && !isClickInsideSearchBtn) {
+       search.classList.remove('active');
+   }
+});
+
+// Prevent clicks inside the profile from closing it
+profile.addEventListener('click', (event) => {
+   event.stopPropagation();
+});
 let sideBar = document.querySelector('.side-bar');
 
 document.querySelector('#menu-btn').onclick = () =>{
    sideBar.classList.toggle('active');
    body.classList.toggle('active');
 }
+document.addEventListener('click', (event) => {
+   const isClickInsideSide = sideBar.contains(event.target);
+   const isClickInsideSideBtn = document.querySelector('#menu-btn').contains(event.target);
 
+   if (!isClickInsideSide && !isClickInsideSideBtn) {
+       sideBar.classList.remove('active');
+   }
+});
+
+// Prevent clicks inside the profile from closing it
+profile.addEventListener('click', (event) => {
+   event.stopPropagation();
+});
 document.querySelector('#close-btn').onclick = () =>{
    sideBar.classList.remove('active');
    body.classList.remove('active');
@@ -139,8 +205,10 @@ document.getElementById('prevBtn').addEventListener('click', () => {
    slideInterval = setInterval(showNextSlide, 3000); // Restart auto slide
 });
 
-// Initial display
 updateCarousel();
+
+
+
 
 
 window.onscroll = () =>{

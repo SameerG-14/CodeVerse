@@ -20,12 +20,13 @@
       <section class="flex">
         <a href="home.html" class="logo"><div class="logo-div"><img src="CodeVerse.png" alt="" class="logo-img"><span>CodeVerse</span></div></a>
 
-        <form action="search.html" method="post" class="search-form">
+        <form id="search-form" method="post" class="search-form" enctype="multipart/form-data">
           <input
             type="text"
             name="search_box"
+            id="search_box"
             required
-            placeholder="search courses..."
+            placeholder="Search Courses"
             maxlength="100"
           />
           <button type="submit" class="fas fa-search"></button>
@@ -43,10 +44,7 @@
           <h3 class="name">SURYAPRASAD</h3>
           <p class="role">student</p>
           <a href="profile.html" class="btn">view profile</a>
-          <div class="flex-btn">
-            <a href="login.html" class="option-btn">login</a>
-            <a href="register.html" class="option-btn">register</a>
-          </div>
+         
         </div>
       </section>
     </header>
@@ -121,7 +119,7 @@
         />
         <p>select profile <span>*</span></p>
         <input type="file" accept="image/*" required class="box" />
-        <input type="submit" value="register new" name="submit" class="btn" />
+        <input type="submit" value="register Now" name="submit" class="btn" />
       </form>
     </section>
     <footer>
@@ -129,7 +127,11 @@
         Copyright &copy;www.CodeVerse.com. All rights are reserved!
       </div>
     </footer>
-
+    <style>
+      body{
+        text-transform: capitalize;
+      }
+    </style>
     <!-- custom js file link  -->
     <script src="script.js"></script>
   </body>
